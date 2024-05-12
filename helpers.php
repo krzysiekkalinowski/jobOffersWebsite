@@ -2,8 +2,8 @@
 
 /** Get a base path
  * 
- * @param string $path;
- * @return string;
+ * @param string $path
+ * @return string
  */
 function basePath($path = '')
 {
@@ -39,4 +39,30 @@ function loadPartial($name)
     } else {
         echo "Partial {$name} view not found";
     }
+}
+
+/**
+ * Inspect a value
+ * 
+ * @param mixed $value
+ * @return void
+ */
+function inspect($value)
+{
+    echo '<pre>';
+    var_dump($value);
+    echo '</pre>';
+}
+
+/**
+ * Inspect a value and die
+ * 
+ * @param mixed $value
+ * @return void
+ */
+function inspectAndDie($value)
+{
+    echo '<pre>';
+    die(var_dump($value));
+    echo '</pre>';
 }
