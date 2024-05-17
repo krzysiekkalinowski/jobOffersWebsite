@@ -1,6 +1,6 @@
-<? loadPartial('head') ?>
-<? loadPartial('navbar') ?>
-<? loadPartial('top-banner') ?>
+<?= loadPartial('head') ?>
+<?= loadPartial('navbar') ?>
+<?= loadPartial('top-banner') ?>
 
 <!-- Post a Job Form Box -->
 <section class="flex justify-center items-center mt-20">
@@ -60,5 +60,5 @@
     </div>
 </section>
 
-<? loadPartial('bottom-banner') ?>
-<? loadPartial('footer') ?>
+<?= loadPartial('bottom-banner') ?>
+<?= loadPartial('footer') ?>

@@ -1,5 +1,5 @@
-<? loadPartial('head') ?>
-<? loadPartial('navbar') ?>
+<?= loadPartial('head') ?>
+<?= loadPartial('navbar') ?>
 
 <!-- Eroor section -->
 <section>
@@ -11,4 +11,4 @@
     </div>
 </section>
 
-<? loadPartial('footer') ?>
+<?= loadPartial('footer') ?>
