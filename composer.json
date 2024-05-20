@@ -1,0 +1,16 @@
+{
+  "name": "krzysiekkalinowski/jobofferswebsite",
+  "description": "Job offers website",
+  "authors": [
+    {
+      "name": "Krzysztof Kalinowski",
+      "email": "krzykalinowskidev@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "Framework/",
+      "App\\": "App/"
+    }
+  }
+}
