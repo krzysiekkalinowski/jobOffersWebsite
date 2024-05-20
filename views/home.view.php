@@ -13,7 +13,7 @@
                     <div class="p-4">
                         <h2 class="text-xl font-semibold"><?= $listing['title'] ?></h2>
                         <p class="text-gray-700 text-lg mt-2">
-                            <?= $listing['title'] ?>
+                            <?= $listing['description'] ?>
                         </p>
                         <ul class="my-4 bg-gray-100 p-4 rounded">
                             <li class="mb-2"><strong>Salary:</strong> <?= formatSalary($listing['salary']) ?>, <?= $listing['voivodeship'] ?></li>
