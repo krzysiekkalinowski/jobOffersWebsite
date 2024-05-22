@@ -62,4 +62,31 @@ class ListingController
 			'listing' => $listing
 		]);
 	}
+
+	/**
+	 * Store data from form in db
+	 * 
+	 * @return void
+	 */
+	public function store()
+	{
+		$allowedFileds = [
+			'title',
+			'description',
+			'salary',
+			'tags',
+			'company',
+			'address',
+			'city',
+			'state',
+			'phone',
+			'email',
+			'requirements',
+			'benefits',
+		];
+
+		$newListingData = array_intersect_key($_POST, array_flip($allowedFileds));
+
+		inspectAndDie($newListingData);
+	}
 }
