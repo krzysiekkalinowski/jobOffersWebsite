@@ -24,4 +24,31 @@ class Validation
 
         return false;
     }
+
+    /**
+     * Validate email
+     * 
+     * @param string $value
+     * @return mixed
+     */
+    public static function email($value)
+    {
+        $value = trim($value);
+
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
+
+    /**
+     * Match two strings values
+     * 
+     * @param string $value
+     * @param string $value2
+     * return bool
+     */
+    public static function match($value, $value2)
+    {
+        $value = trim($value);
+        $value2 = trim($value2);
+        return $value === $value2;
+    }
 }
