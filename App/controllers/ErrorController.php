@@ -14,7 +14,7 @@ class ErrorController
 		http_response_code(404);
 
 		loadView('error', [
-			'status' => 404,
+			'status' => '404',
 			'message' => $message
 		]);
 	}
@@ -28,7 +28,7 @@ class ErrorController
 		http_response_code(403);
 
 		loadView('error', [
-			'status' => 403,
+			'status' => '403',
 			'message' => $message
 		]);
 	}
