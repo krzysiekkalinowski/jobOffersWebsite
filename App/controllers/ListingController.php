@@ -87,6 +87,10 @@ class ListingController
 
 		$newListingData = array_intersect_key($_POST, array_flip($allowedFileds));
 
+		$newListingData['user_id'] = 1;
+
+		$newListingData = array_map('sanitize', $newListingData);
+
 		inspectAndDie($newListingData);
 	}
 }
