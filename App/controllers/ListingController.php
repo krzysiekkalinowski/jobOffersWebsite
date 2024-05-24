@@ -94,6 +94,7 @@ class ListingController
 		$reauiredFields = [
 			'title',
 			'description',
+			'salary',
 			'email',
 			'city',
 			'voivodeship',
@@ -114,7 +115,32 @@ class ListingController
 			]);
 		} else {
 			//Submit forms data
-			echo 'Form submitted';
+
+			$fields = [];
+
+			foreach ($newListingData as $key => $value) {
+				$fields[] = $key;
+			}
+
+			$fields = implode(', ', $fields);
+
+			$values = [];
+
+			foreach ($newListingData as $key => $value) {
+				// Convert empty strings to NULL
+				if ($value === '') {
+					$newListingData[$key] = 'NULL';
+				}
+				$values[] = ':' . $key;
+			}
+
+			$values = implode(', ', $values);
+
+			$query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+
+			$this->db->query($query, $newListingData);
+
+			redirect('/listings');
 		}
 	}
 };

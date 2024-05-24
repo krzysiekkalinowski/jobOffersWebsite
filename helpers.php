@@ -90,3 +90,15 @@ function sanitize($dirty)
 {
     return filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS);
 }
+
+/**
+ * Redirect to a new page
+ * 
+ * @param string $url
+ * @requires viod
+ */
+function redirect($url)
+{
+    header("Location: $url");
+    exit;
+};
