@@ -78,7 +78,7 @@ class ListingController
 			'company',
 			'address',
 			'city',
-			'state',
+			'voivodeship',
 			'phone',
 			'email',
 			'requirements',
@@ -91,6 +91,30 @@ class ListingController
 
 		$newListingData = array_map('sanitize', $newListingData);
 
-		inspectAndDie($newListingData);
+		$reauiredFields = [
+			'title',
+			'description',
+			'email',
+			'city',
+			'voivodeship',
+		];
+
+		$error = [];
+		foreach ($reauiredFields as $field) {
+			if (empty($newListingData[$field]) || !Validation::string($newListingData[$field])) {
+				$errors[$field] = ucfirst($field) . ' is required';
+			}
+		};
+
+		if (!empty($errors)) {
+			// Reload the form with errors
+			loadView('listings/create', [
+				'errors' => $errors,
+				'listing' => $newListingData
+			]);
+		} else {
+			//Submit forms data
+			echo 'Form submitted';
+		}
 	}
-}
+};
