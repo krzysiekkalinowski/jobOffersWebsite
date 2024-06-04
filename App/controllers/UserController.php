@@ -34,4 +34,43 @@ class UserController
     {
         loadView('users/create');
     }
+
+    /**
+     * Store user to db
+     * 
+     * @return void
+     */
+    public function store()
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $city = $_POST['city'];
+        $voivodeship = $_POST['voivodeship'];
+        $password = $_POST['password'];
+        $passwordConfirmation = $_POST['password_confirmation'];
+
+        $errors = [];
+
+        if (!Validation::email($email)) {
+            $errors['email'] = 'Insert valid email adress';
+        }
+
+        if (!empty($errors)) {
+            loadView(
+                'users/create',
+                [
+                    'errors' => $errors,
+                    'user' => [
+                        'name' => $name,
+                        'email' => $email,
+                        'city' => $city,
+                        'voivodeship' => $voivodeship
+                    ]
+                ]
+            );
+            exit;
+        } else {
+            inspectAndDie($errors);
+        }
+    }
 }
