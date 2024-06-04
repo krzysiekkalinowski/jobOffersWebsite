@@ -81,8 +81,19 @@ class UserController
                 ]
             );
             exit;
-        } else {
-            inspectAndDie($errors);
+        }
+
+        //Checking if user with this email already exists
+        $params = [
+            'email' => $email
+        ];
+
+        $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params);
+
+        if ($user) {
+            $errors['email'] = "That email is already taken";
+            loadView('users/create', ['errors' => $errors]);
+            exit;
         }
     }
 }
