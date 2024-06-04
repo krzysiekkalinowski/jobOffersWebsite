@@ -52,7 +52,19 @@ class UserController
         $errors = [];
 
         if (!Validation::email($email)) {
-            $errors['email'] = 'Insert valid email adress';
+            $errors['email'] = 'Enter valid email adress';
+        }
+
+        if (!Validation::string($name, 2, 50)) {
+            $errors['name'] = 'Name must be between 2 and 50 characters';
+        }
+
+        if (!Validation::string($password, 6, 50)) {
+            $errors['password'] = 'Password must be between 6 and 50 characters';
+        }
+
+        if (!Validation::match($password, $passwordConfirmation)) {
+            $errors['password_confirmation'] = 'Passwords must be the same';
         }
 
         if (!empty($errors)) {
