@@ -88,12 +88,25 @@ class UserController
             'email' => $email
         ];
 
-        $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params);
+        $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
         if ($user) {
             $errors['email'] = "That email is already taken";
             loadView('users/create', ['errors' => $errors]);
             exit;
         }
+
+        //Creating new user
+        $params = [
+            'name' => $name,
+            'email' => $email,
+            'city' => $city,
+            'voivodeship' => $voivodeship,
+            'password' => password_hash($password, PASSWORD_DEFAULT)
+        ];
+
+        $this->db->query('INSERT INTO users (name, email, city, voivodeship, password) VALUES (:name, :email, :city, :voivodeship, :password)', $params);
+
+        redirect('/');
     }
 }

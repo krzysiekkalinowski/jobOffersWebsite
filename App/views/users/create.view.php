@@ -22,10 +22,10 @@
                 <input type="text" name="voivodeship" placeholder="Voivodeship" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user["voivodeship"] ?? '' ?>" />
             </div>
             <div class="mb-4">
-                <input type="password" name="password" placeholder="Password" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user["password"] ?? '' ?>" />
+                <input type="password" name="password" placeholder="Password" class="w-full px-4 py-2 border rounded focus:outline-none" />
             </div>
             <div class="mb-4">
-                <input type="password" name="password_confirmation" placeholder="Confirm Password" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user["password_confirmation"] ?? '' ?>" />
+                <input type="password" name="password_confirmation" placeholder="Confirm Password" class="w-full px-4 py-2 border rounded focus:outline-none" />
             </div>
             <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
                 Register
