@@ -10,6 +10,7 @@ use Framework\Session;
         <nav class="space-x-4">
             <?php if (Session::has('user')) : ?>
                 <div class="flex justify-between items-center gap-4">
+                    <?= var_dump(Session::get('user')); ?>
                     <div>
                         Welcome <?= Session::get('user')['name'] ?>
                     </div>
