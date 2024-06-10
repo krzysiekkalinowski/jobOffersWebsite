@@ -188,15 +188,12 @@ class UserController
 
         // Set user session
         Session::set('user', [
-            'id' => $user->id,
-            'name' => $user->name,
-            'email' => $user->email,
-            'city' => $user->city,
-            'voivodeship' => $user->voivodeship
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'city' => $user['city'],
+            'voivodeship' => $user['id']
         ]);
-
-
-        inspectAndDie($_SESSION['user']['name']);
 
         redirect('/');
     }
