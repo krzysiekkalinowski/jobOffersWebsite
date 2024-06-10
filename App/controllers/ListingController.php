@@ -305,4 +305,14 @@ class ListingController
 			redirect('/listings/' . $id);
 		}
 	}
+
+	/**
+	 * Search listings by keywords and location
+	 * 
+	 * @return void
+	 */
+	public function search()
+	{
+		inspectAndDie($_GET);
+	}
 };
