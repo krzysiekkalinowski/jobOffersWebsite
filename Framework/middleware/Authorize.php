@@ -24,7 +24,7 @@ class Authorize
      */
     public function handle($role)
     {
-        if ($role === 'quest' && $this->isAuthorized()) {
+        if ($role === 'guest' && $this->isAuthorized()) {
             return redirect('/');
         } elseif ($role === 'auth' && !$this->isAuthorized()) {
             return redirect('/auth/login');
