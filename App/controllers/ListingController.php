@@ -230,6 +230,11 @@ class ListingController
 			return;
 		}
 
+		if (!Authorization::isOwner($listing['user_id'])) {
+			Session::setFlashMessage('error_message', 'You are not authorized to edit this listing');
+			return redirect('/listings/' . $listing['id']);
+		}
+
 		$allowedFileds = [
 			'title',
 			'description',
@@ -288,7 +293,9 @@ class ListingController
 			$updatedValues['id'] = $id;
 			$this->db->query($updateQuery, $updatedValues);
 
-			$_SESSION['success_message'] = 'Listing updated';
+			//Set flash message
+			Session::setFlashMessage('success_message', 'Listing updated');
+			redirect('/listings');
 
 			redirect('/listings/' . $id);
 		}
